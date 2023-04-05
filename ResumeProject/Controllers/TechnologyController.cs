@@ -7,49 +7,50 @@ using ResumeProject.Models;
 
 namespace ResumeProject.Controllers
 {
-    public class SkillController : Controller
+    public class TechnologyController : Controller
     {
         DbResumeEntities db = new DbResumeEntities();
         public ActionResult Index()
         {
-            var values = db.TblSkill.ToList();
+            var values = db.TblTechnology.ToList();
             return View(values);
         }
-        [HttpGet]
-        public ActionResult AddSkill()
+
+       [HttpGet]
+       public ActionResult AddTechnology()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult AddSkill(TblSkill p)
+        public ActionResult AddTechnology(TblTechnology p)
         {
-            db.TblSkill.Add(p);
+            db.TblTechnology.Add(p);
             db.SaveChanges();
             return RedirectToAction("Index");
-
         }
-        public ActionResult DeleteSkill(int id)
+        public ActionResult DeleteTechnology(int id)
         {
-            var value = db.TblSkill.Find(id);
-            db.TblSkill.Remove(value);
+            var value = db.TblTechnology.Find(id);
+            db.TblTechnology.Remove(value);
             db.SaveChanges();
             return RedirectToAction("Index");
+            
         }
         [HttpGet]
-        public ActionResult UpdateSkill(int id)
+        public ActionResult UpdateTechnology(int id)
         {
-            var value = db.TblSkill.Find(id);
+            var value = db.TblTechnology.Find(id);
             return View(value);
         }
         [HttpPost]
-        public ActionResult UpdateSkill(TblSkill p)
+        public ActionResult UpdateTechnology(TblTechnology p)
         {
-            var value = db.TblSkill.Find(p.SkillID);
-            value.SkillTitle = p.SkillTitle;
-            value.SkillIcon = p.SkillIcon;
-            value.SkillDescription = p.SkillDescription;
+            var value = db.TblTechnology.Find(p.TechnologyID);
+            value.TechnologyTitle = p.TechnologyTitle;
+            value.TechnologyValue = p.TechnologyValue;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
     }
 }

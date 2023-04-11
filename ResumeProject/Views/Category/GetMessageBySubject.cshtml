@@ -1,11 +1,11 @@
 ﻿@using ResumeProject.Models
 @model List<TblContact>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "GetMessageBySubject";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Gelen Mesajlar </h2>
+<h2>Konuya Göre Gelen Mesajlar </h2>
 
 <table class="table table-bordered">
     <tr>
@@ -14,11 +14,14 @@
         <th>Konu</th>
         <th>Tarih</th>
         <th>Sil</th>
-        
+        <th>Güncelle</th>
+        <th>Mesajı Aç</th>
+
     </tr>
     @foreach (var item in Model)
     {
-<       <tr>
+        <
+        <tr>
             <td>@item.ContactID</td>
             <td>@item.NameSurname</td>
             <td>@item.TblCategory.CategoryName</td>

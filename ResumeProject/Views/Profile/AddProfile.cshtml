@@ -1,0 +1,43 @@
+﻿@model ResumeProject.Models.TblProfile
+
+@{
+    ViewBag.Title = "AddProfile";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Profil Eklleme</h2>
+
+
+<form method="post">
+    <label>Profil Başlığı</label>
+    <input type="text" class="form-control" name="ProfileTitle" />
+    <br />
+    <label>Profil Açıklaması</label>
+    <input type="text" class="form-control" name="ProfileDescription" />
+    <br />
+    <label> İsim </label>
+    <input type="text" class="form-control" name="Name" />
+    <br />
+    <label> Mail </label>
+    <input type="text" class="form-control" name="Mail" />
+    <br />
+    <label> Adres </label>
+    <input type="text" class="form-control" name="Adress" />
+    <br />
+    <label> Telefon </label>
+    <input type="text" class="form-control" name="Phone" />
+    <br />
+    <label> Facebook </label>
+    <input type="text" class="form-control" name="SocialMedia1" />
+    <br />
+    <label> Twitter </label>
+    <input type="text" class="form-control" name="SocialMedia2" />
+    <br />
+    <label> İnstagram </label>
+    <input type="text" class="form-control" name="SocialMedia3" />
+    <br />
+    <label> Linkedin</label>
+    <input type="text" class="form-control" name="SocialMedia4" />
+    <br />
+    <button class="btn btn-primary">Profili Kaydet</button>
+</form>

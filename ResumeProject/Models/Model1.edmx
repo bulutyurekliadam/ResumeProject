@@ -58,6 +58,15 @@
           <Property Name="ProjectDescription" Type="nvarchar" MaxLength="500" />
           <Property Name="ProjectImageUrl" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="TblService">
+          <Key>
+            <PropertyRef Name="ServicesID" />
+          </Key>
+          <Property Name="ServicesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServicesTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="ServicesIcon" Type="nvarchar" MaxLength="100" />
+          <Property Name="ServicesDescription" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="TblSkill">
           <Key>
             <PropertyRef Name="SkillID" />
@@ -94,6 +103,7 @@
           <EntitySet Name="TblContact" EntityType="Self.TblContact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblProfile" EntityType="Self.TblProfile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblProject" EntityType="Self.TblProject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblService" EntityType="Self.TblService" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblSkill" EntityType="Self.TblSkill" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblTechnology" EntityType="Self.TblTechnology" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_TblContact_TblCategory" Association="Self.FK_TblContact_TblCategory">
@@ -160,6 +170,7 @@
             <End Role="TblContact" EntitySet="TblContact" />
           </AssociationSet>
           <FunctionImport Name="CountProjeTalebi" ReturnType="Collection(Int32)" />
+          <EntitySet Name="TblService" EntityType="DbResumeModel.TblService" />
         </EntityContainer>
         <EntityType Name="TblContact">
           <Key>
@@ -203,6 +214,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TblService">
+          <Key>
+            <PropertyRef Name="ServicesID" />
+          </Key>
+          <Property Name="ServicesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServicesTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ServicesIcon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ServicesDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -287,6 +307,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="CountProjeTalebi" FunctionName="DbResumeModel.Store.CountProjeTalebi" />
+          <EntitySetMapping Name="TblService">
+            <EntityTypeMapping TypeName="DbResumeModel.TblService">
+              <MappingFragment StoreEntitySet="TblService">
+                <ScalarProperty Name="ServicesDescription" ColumnName="ServicesDescription" />
+                <ScalarProperty Name="ServicesIcon" ColumnName="ServicesIcon" />
+                <ScalarProperty Name="ServicesTitle" ColumnName="ServicesTitle" />
+                <ScalarProperty Name="ServicesID" ColumnName="ServicesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
